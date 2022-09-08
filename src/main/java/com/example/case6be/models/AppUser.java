@@ -20,6 +20,7 @@ public class AppUser {
     private String aress;
     private int phone;
     private int age;
+
     private String img;
 
 }

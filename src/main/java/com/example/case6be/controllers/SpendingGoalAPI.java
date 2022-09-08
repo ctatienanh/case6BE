@@ -1,6 +1,7 @@
 package com.example.case6be.controllers;
 
 import com.example.case6be.models.SpendingGoal;
+import com.example.case6be.models.dto.Spen;
 import com.example.case6be.services.IspendingGoalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -66,9 +67,9 @@ public class SpendingGoalAPI {
 //        }
 //        return "image/"+name;
 //    }
-    @GetMapping("/check/{name}")
-    public SpendingGoal findByName(@PathVariable String name){
-        return ispendingGoalService.findByName(name);
+    @PostMapping("/check")
+    public SpendingGoal findByName(@RequestBody Spen spen){
+        return ispendingGoalService.findByName( spen.getIdUser() , spen.getName());
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

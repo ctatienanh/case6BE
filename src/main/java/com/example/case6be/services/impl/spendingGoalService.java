@@ -38,7 +38,7 @@ public class spendingGoalService implements IspendingGoalService {
     }
 
     @Override
-    public SpendingGoal findByName(String name) {
-        return ispendingGoalRepo.findByName(name);
+    public SpendingGoal findByName( long id,String name) {
+        return ispendingGoalRepo.findByName(id,name);
     }
 }

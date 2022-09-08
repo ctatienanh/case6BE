@@ -14,5 +14,4 @@ public class SpendingGoal {
     @ManyToOne
     private AppUser user;
 
-
 }

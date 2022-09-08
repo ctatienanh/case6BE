@@ -1,6 +1,8 @@
 package com.example.case6be.services;
 
 import com.example.case6be.models.SpendingGoal;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -16,5 +18,5 @@ public interface IspendingGoalService {
 
     void delete(int id);
 
-    SpendingGoal findByName(String name);
+    SpendingGoal findByName(long id, String name );
 }
