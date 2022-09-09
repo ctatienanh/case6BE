@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Time;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/spending")
@@ -19,6 +21,11 @@ public class SpendingAPI {
     }
     @PostMapping
     public Spending save(@RequestBody Spending spending){
+        Time timeNow = Time.valueOf(java.time.LocalTime.now());
+        spending.setTime(timeNow);
+        long millis = System.currentTimeMillis();
+        java.sql.Date date = new java.sql.Date(millis);
+        spending.setDate(date);
         return spendingService.save(spending);
     }
     @DeleteMapping("/{id}")

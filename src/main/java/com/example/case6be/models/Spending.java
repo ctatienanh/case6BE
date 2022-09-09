@@ -3,7 +3,9 @@ package com.example.case6be.models;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Time;
+import java.util.Timer;
 
 @Data
 @Entity
@@ -12,10 +14,9 @@ public class Spending {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @ManyToOne
-    private SpendingGoal speng;
+    private String namespending;
     private long money;
-    private String img;
     private Date date;
+    private Time time;
 
 }

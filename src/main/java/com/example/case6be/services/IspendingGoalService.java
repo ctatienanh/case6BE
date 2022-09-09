@@ -16,7 +16,7 @@ public interface IspendingGoalService {
 
     SpendingGoal save(SpendingGoal spendingGoal);
 
-    void delete(int id);
+    void delete(SpendingGoal spendingGoal);
 
     SpendingGoal findByName(long id, String name );
 }

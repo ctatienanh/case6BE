@@ -33,8 +33,8 @@ public class spendingGoalService implements IspendingGoalService {
     }
 
     @Override
-    public void delete(int id) {
-        ispendingGoalRepo.deleteById(id);
+    public void delete(SpendingGoal spendingGoal) {
+        ispendingGoalRepo.delete(spendingGoal);
     }
 
     @Override

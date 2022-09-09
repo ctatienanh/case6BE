@@ -71,6 +71,10 @@ public class SpendingGoalAPI {
     public SpendingGoal findByName(@RequestBody Spen spen){
         return ispendingGoalService.findByName( spen.getIdUser() , spen.getName());
     }
+    @PostMapping("/delete")
+    public void delete(@RequestBody SpendingGoal spendingGoal){
+         ispendingGoalService.delete(spendingGoal);
+    }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
