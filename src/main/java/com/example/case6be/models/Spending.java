@@ -18,5 +18,7 @@ public class Spending {
     private long money;
     private Date date;
     private Time time;
+    @ManyToOne
+    private AppUser user;
 
 }
