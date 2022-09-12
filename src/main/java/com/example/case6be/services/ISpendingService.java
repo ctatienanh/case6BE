@@ -19,5 +19,6 @@ public interface ISpendingService {
 
     List<Spending> findByDay(long id, java.sql.Date day1, Date day2);
 
+    List<Spending> finByDetail(long id, String namespending);
 
 }
