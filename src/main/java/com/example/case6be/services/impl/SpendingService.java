@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -35,5 +36,10 @@ public class SpendingService implements ISpendingService {
     @Override
     public SumSpending count(long id) {
         return iSpendingRepo.countByname(id);
+    }
+
+    @Override
+    public List<Spending> findByDay(long id, java.sql.Date day1, Date day2) {
+        return iSpendingRepo.findByDay(id,day1,day2);
     }
 }
