@@ -2,6 +2,8 @@ package com.example.case6be.controllers;
 
 import com.example.case6be.models.Spending;
 import com.example.case6be.models.SumSpending;
+import com.example.case6be.models.dto.Detail;
+import com.example.case6be.models.dto.SpendingDay;
 import com.example.case6be.services.ISpendingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +36,16 @@ public class SpendingAPI {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable int id){
         spendingService.delete(id);
+    }
+
+    @PostMapping("/day")
+    public List<Spending> showSpendingDay(@RequestBody SpendingDay spendingDay){
+        return spendingService.findByDay(spendingDay.getIdUser(),spendingDay.getDay1(),spendingDay.getDay2());
+    }
+
+    @PostMapping("/detail")
+    public List<Spending> showDetail(@RequestBody Detail detail){
+        return spendingService.finByDetail(detail.getId(),detail.getNamespending());
     }
 
 }
