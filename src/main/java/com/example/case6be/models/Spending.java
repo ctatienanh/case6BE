@@ -19,4 +19,5 @@ public class Spending {
     private Date date;
     private Time time;
 
+
 }
