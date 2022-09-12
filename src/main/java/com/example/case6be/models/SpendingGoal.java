@@ -13,5 +13,6 @@ public class SpendingGoal {
     private String name;
     @ManyToOne
     private AppUser user;
+    private long amount;
 
 }
