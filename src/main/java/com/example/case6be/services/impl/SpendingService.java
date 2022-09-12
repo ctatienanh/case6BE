@@ -36,4 +36,6 @@ public class SpendingService implements ISpendingService {
     public SumSpending count(long id) {
         return iSpendingRepo.countByname(id);
     }
+
+
 }

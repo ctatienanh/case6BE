@@ -12,6 +12,7 @@ import java.util.List;
 public interface ISpendingRepo extends PagingAndSortingRepository<Spending,Integer> {
     @Query(nativeQuery = true,value = "SELECT count(name) as Sumspen FROM case6.spending where user_id = :id")
     SumSpending countByname (@Param("id") long id);
-    @Query(nativeQuery = true,value = "SELECT * FROM case6.spending where user_id =:id")
+    @Query(nativeQuery = true,value = "SELECT * FROM case6.spending where user_id = :id")
     List<Spending> checknamespendingbyid(int id);
+
 }
