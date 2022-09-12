@@ -1,6 +1,7 @@
 package com.example.case6be.controllers;
 
 import com.example.case6be.models.Spending;
+import com.example.case6be.models.SpendingGoal;
 import com.example.case6be.models.SumSpending;
 import com.example.case6be.services.ISpendingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,8 @@ import java.util.List;
 public class SpendingAPI {
     @Autowired
     ISpendingService spendingService;
-    @GetMapping
-    public Page<Spending> getAll(@RequestParam(defaultValue = "0") int page){
-        return spendingService.getAll(PageRequest.of(page,5));
-    }
+    @GetMapping("/{id}")
+        public List<Spending> finByiduser(@PathVariable int id) {return  spendingService.finByiduser(id);}
     @PostMapping
     public Spending save(@RequestBody Spending spending){
         Time timeNow = Time.valueOf(java.time.LocalTime.now());

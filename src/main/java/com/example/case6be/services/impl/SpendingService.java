@@ -16,11 +16,11 @@ public class SpendingService implements ISpendingService {
     @Autowired
     ISpendingRepo iSpendingRepo;
 
-    @Override
-    public Page<Spending> getAll(Pageable pageable) {
-        return iSpendingRepo.findAll(pageable);
-    }
 
+    @Override
+    public List<Spending> finByiduser(int id) {
+        return iSpendingRepo.checknamespendingbyid(id);
+    }
 
     @Override
     public Spending save(Spending spending) {
