@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 public interface ISpendingService {
-Page<Spending> getAll(Pageable pageable);
+List<Spending> findAll(long id);
 Spending save (Spending spending);
 void  delete(int id);
 

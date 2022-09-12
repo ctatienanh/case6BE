@@ -17,9 +17,9 @@ import java.util.List;
 public class SpendingAPI {
     @Autowired
     ISpendingService spendingService;
-    @GetMapping
-    public Page<Spending> getAll(@RequestParam(defaultValue = "0") int page){
-        return spendingService.getAll(PageRequest.of(page,5));
+    @GetMapping("/{id}")
+    public List<Spending> getAll(@PathVariable long id){
+        return spendingService.findAll(id);
     }
     @PostMapping
     public Spending save(@RequestBody Spending spending){
