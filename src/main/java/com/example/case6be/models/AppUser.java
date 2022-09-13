@@ -21,5 +21,7 @@ public class AppUser {
     private int phone;
     private int age;
     private String img;
+    @ManyToOne
+    private AppUser user_ph;
 
 }
