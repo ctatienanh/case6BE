@@ -7,7 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 public interface INotificationRepo extends CrudRepository<Notification,Integer> {
+    @Query(nativeQuery = true,value = "SELECT * FROM case6.notification where user_sv_id = :id")
+    List<Notification> findByid(@Param("id") long id);
 
 }
