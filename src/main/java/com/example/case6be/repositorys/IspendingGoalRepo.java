@@ -11,11 +11,11 @@ import java.util.List;
 public interface IspendingGoalRepo extends JpaRepository<SpendingGoal,Integer> {
     List<SpendingGoal> findAllByNameContaining(String name);
 
-    @Query(nativeQuery = true,value = "SELECT * FROM case6.spending_goal where id =:id")
+    @Query(nativeQuery = true,value = "SELECT * FROM case6.spending_goal where id = :id")
 
     SpendingGoal findById(int id);
 
-    @Query(nativeQuery = true,value = "SELECT * FROM case6.spending_goal where user_id =:id")
+    @Query(nativeQuery = true,value = "SELECT * FROM case6.spending_goal where user_id = :id")
     List<SpendingGoal> checknamebyid(int id);
     @Query(nativeQuery = true,value = "SELECT * FROM case6.spending_goal where  user_id = :id && name = :namee ")
     SpendingGoal findByName(@Param("id") long id , @Param("namee") String namee);
