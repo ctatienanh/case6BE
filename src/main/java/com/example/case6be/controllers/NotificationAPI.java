@@ -2,6 +2,8 @@ package com.example.case6be.controllers;
 
 import com.example.case6be.models.Notification;
 import com.example.case6be.models.Spending;
+import com.example.case6be.models.SumSpending;
+import com.example.case6be.models.Sumnotification;
 import com.example.case6be.services.InotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +32,9 @@ public class NotificationAPI {
     public List<Notification> getallbyid(@PathVariable long id){
         return inotificationService.findall(id);
     }
-
+    @GetMapping("/showcount/{id}")
+    public Sumnotification showcount(@PathVariable long id){
+        return inotificationService.count(id);
+    }
 
 }
