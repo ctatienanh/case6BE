@@ -15,7 +15,6 @@ public class SpendingLimit {
     private Date date2;
     @ManyToOne
     private AppUser user;
-    @ManyToOne
-    private Spending spending;
+    private long money;
     private long moneylimit;
 }
