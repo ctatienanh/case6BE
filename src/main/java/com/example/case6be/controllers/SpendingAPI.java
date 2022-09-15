@@ -8,7 +8,10 @@ import com.example.case6be.services.ISpendingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @RestController
@@ -17,10 +20,14 @@ import java.util.List;
 public class SpendingAPI {
     @Autowired
     ISpendingService spendingService;
+
     @GetMapping("/{id}")
-        public List<Spending> finByiduser(@PathVariable int id) {return  spendingService.finByiduser(id);}
+    public List<Spending> finByiduser(@PathVariable int id) {
+        return spendingService.finByiduser(id);
+    }
+
     @PostMapping
-    public Spending save(@RequestBody Spending spending){
+    public Spending save(@RequestBody Spending spending) {
         Time timeNow = Time.valueOf(java.time.LocalTime.now());
         spending.setTime(timeNow);
         long millis = System.currentTimeMillis();
@@ -28,24 +35,27 @@ public class SpendingAPI {
         spending.setDate(date);
         return spendingService.save(spending);
     }
+
     @GetMapping("/showcount/{id}")
-    public SumSpending showcount(@PathVariable long id){
+    public SumSpending showcount(@PathVariable long id) {
         return spendingService.count(id);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable int id){
+    public void delete(@PathVariable int id) {
         spendingService.delete(id);
     }
 
     @PostMapping("/day")
-    public List<Spending> showSpendingDay(@RequestBody SpendingDay spendingDay){
-        return spendingService.findByDay(spendingDay.getIdUser(),spendingDay.getDay1(),spendingDay.getDay2());
+    public List<Spending> showSpendingDay(@RequestBody SpendingDay spendingDay) {
+
+        return spendingService.findByDay(spendingDay.getIdUser(), spendingDay.getDay1(), spendingDay.getDay2());
+
     }
 
     @PostMapping("/detail")
-    public List<Spending> showDetail(@RequestBody Detail detail){
-        return spendingService.finByDetail(detail.getId(),detail.getNamespending());
+    public List<Spending> showDetail(@RequestBody Detail detail) {
+        return spendingService.finByDetail(detail.getId(), detail.getNamespending());
     }
 
 }
