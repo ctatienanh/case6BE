@@ -16,4 +16,5 @@ public interface INotificationRepo extends CrudRepository<Notification,Integer> 
     List<Notification> findByid(@Param("id") long id);
     @Query(nativeQuery = true,value = "SELECT count(status_confirm) as Sumnotification FROM case6.notification where user_sv_id = :id and status_confirm = 0;")
     Sumnotification countBynotification(@Param("id") long id );
+
 }

@@ -38,8 +38,6 @@ public class SpendingService implements ISpendingService {
         return iSpendingRepo.countByname(id);
     }
 
-
-
     @Override
     public List<Spending> findByDay(long id, java.sql.Date day1, Date day2) {
         return iSpendingRepo.findByDay(id,day1,day2);
