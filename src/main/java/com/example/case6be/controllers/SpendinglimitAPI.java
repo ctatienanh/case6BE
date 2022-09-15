@@ -5,6 +5,8 @@ import com.example.case6be.services.IspendingLimitservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/spendinglimit")
@@ -20,5 +22,12 @@ public class SpendinglimitAPI {
         spendingLimit.setDate1(date);
         ispendingLimitservice.save(spendingLimit);
     }
+
+    @GetMapping("/{id}")
+    public List<SpendingLimit> finall(@PathVariable long id){
+        return ispendingLimitservice.fillallbyid(id);
+    }
+
+
 
 }
