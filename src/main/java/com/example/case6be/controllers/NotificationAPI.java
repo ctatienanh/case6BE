@@ -36,5 +36,10 @@ public class NotificationAPI {
     public Sumnotification showcount(@PathVariable long id){
         return inotificationService.count(id);
     }
+    @PostMapping("/editstatus")
+    public Notification editstatus(@RequestBody Notification notification){
+        notification.setStatusConfirm(true);
+        return inotificationService.save(notification);
 
+    }
 }

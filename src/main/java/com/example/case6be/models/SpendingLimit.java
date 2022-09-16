@@ -17,4 +17,5 @@ public class SpendingLimit {
     private AppUser user;
     private long money;
     private long moneylimit;
+    private long status;
 }

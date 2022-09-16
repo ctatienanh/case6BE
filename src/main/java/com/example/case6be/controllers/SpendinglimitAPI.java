@@ -23,6 +23,13 @@ public class SpendinglimitAPI {
         ispendingLimitservice.save(spendingLimit);
     }
 
+    @PostMapping("/edit")
+    public  void edit(@RequestBody SpendingLimit spendingLimit ){
+        ispendingLimitservice.save(spendingLimit);
+    }
+
+
+
     @GetMapping("/{id}")
     public List<SpendingLimit> finall(@PathVariable long id){
         return ispendingLimitservice.fillallbyid(id);
