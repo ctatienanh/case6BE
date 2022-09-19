@@ -22,4 +22,9 @@ public class Spendinglimitservice implements IspendingLimitservice {
     public List<SpendingLimit> fillallbyid(long id) {
         return  iSpendingLimitRepo.findByid(id);
     }
+
+    @Override
+    public void dalete(long id) {
+        iSpendingLimitRepo.deleteById(id);
+    }
 }

@@ -20,5 +20,6 @@ public class Notification {
     private Date date;
     private Time time;
     private boolean statusConfirm=false;
+    private long money;
 
 }

@@ -11,4 +11,6 @@ public interface ISpendingLimitRepo extends CrudRepository<SpendingLimit,Long> {
 
     @Query(nativeQuery = true,value = "SELECT * FROM case6.spending_limit where user_id =:id")
     List<SpendingLimit> findByid(@Param("id")long id);
+
+
 }

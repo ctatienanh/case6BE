@@ -8,4 +8,6 @@ public interface IspendingLimitservice {
 
     void save(SpendingLimit spendingLimit);
     List<SpendingLimit> fillallbyid(long id);
+
+    void dalete(long id);
 }

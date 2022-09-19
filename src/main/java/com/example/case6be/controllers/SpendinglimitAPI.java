@@ -16,7 +16,7 @@ public class SpendinglimitAPI {
 
 
     @PostMapping
-    public  void save(@RequestBody SpendingLimit spendingLimit ){
+    public void save(@RequestBody SpendingLimit spendingLimit) {
         long millis = System.currentTimeMillis();
         java.sql.Date date = new java.sql.Date(millis);
         spendingLimit.setDate1(date);
@@ -24,17 +24,18 @@ public class SpendinglimitAPI {
     }
 
     @PostMapping("/edit")
-    public  void edit(@RequestBody SpendingLimit spendingLimit ){
+    public void edit(@RequestBody SpendingLimit spendingLimit) {
         ispendingLimitservice.save(spendingLimit);
     }
 
 
-
     @GetMapping("/{id}")
-    public List<SpendingLimit> finall(@PathVariable long id){
+    public List<SpendingLimit> finall(@PathVariable long id) {
         return ispendingLimitservice.fillallbyid(id);
     }
 
-
-
+    @PostMapping("/delete/{id}")
+    public void delete(@PathVariable long id){
+        ispendingLimitservice.dalete(id);
+    }
 }
