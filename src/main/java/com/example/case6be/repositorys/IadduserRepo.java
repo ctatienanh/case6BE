@@ -10,4 +10,7 @@ import java.util.List;
 public interface IadduserRepo extends CrudRepository<AddUser, Long> {
     @Query(nativeQuery = true,value = "SELECT * FROM case6.add_user where user_ph_id = :id")
     List<AddUser> findAllByid(@Param("id") long id);
+
+    @Query(nativeQuery = true, value = "SELECT * FROM case6.add_user where user_sv_id = :id")
+    AddUser findAllByidHs(@Param("id") long id);
 }

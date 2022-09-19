@@ -22,4 +22,11 @@ public class AdduserService implements IaddUserService {
     public List<AddUser> finallbyid(long id) {
         return iadduserRepo.findAllByid(id);
     }
+
+    @Override
+    public void delete(long id) {
+        iadduserRepo.delete(iadduserRepo.findAllByidHs(id));
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package com.example.case6be.services.impl;
 
+import com.example.case6be.models.AppUser;
 import com.example.case6be.models.Spending;
 import com.example.case6be.models.SumSpending;
 import com.example.case6be.repositorys.ISpendingRepo;

@@ -5,7 +5,10 @@ import com.example.case6be.models.SumSpending;
 import com.example.case6be.models.dto.Detail;
 import com.example.case6be.models.dto.SpendingDay;
 import com.example.case6be.services.ISpendingService;
+import com.example.case6be.services.impl.SpendingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -20,6 +23,9 @@ import java.util.List;
 public class SpendingAPI {
     @Autowired
     ISpendingService spendingService;
+
+    @Autowired
+    SpendingService spendingServicee;
 
     @GetMapping("/{id}")
     public List<Spending> finByiduser(@PathVariable int id) {
@@ -48,14 +54,10 @@ public class SpendingAPI {
 
     @PostMapping("/day")
     public List<Spending> showSpendingDay(@RequestBody SpendingDay spendingDay) {
-
         return spendingService.findByDay(spendingDay.getIdUser(), spendingDay.getDay1(), spendingDay.getDay2());
-
     }
-
     @PostMapping("/detail")
     public List<Spending> showDetail(@RequestBody Detail detail) {
         return spendingService.finByDetail(detail.getId(), detail.getNamespending());
     }
-
 }
