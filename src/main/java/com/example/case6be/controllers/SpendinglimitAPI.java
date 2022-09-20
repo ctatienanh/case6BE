@@ -34,7 +34,7 @@ public class SpendinglimitAPI {
         return ispendingLimitservice.fillallbyid(id);
     }
 
-    @PostMapping("/delete/{id}")
+    @GetMapping("/delete/{id}")
     public void delete(@PathVariable long id){
         ispendingLimitservice.dalete(id);
     }
