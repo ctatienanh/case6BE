@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 public interface INotificationRepo extends CrudRepository<Notification,Integer> {
-    @Query(nativeQuery = true,value = "SELECT * FROM case6.notification where user_sv_id = :id")
+    @Query(nativeQuery = true,value = "SELECT * FROM case6.notification where user_sv_id = :id order by id DESC")
     List<Notification> findByid(@Param("id") long id);
     @Query(nativeQuery = true,value = "SELECT count(status_confirm) as Sumnotification FROM case6.notification where user_sv_id = :id and status_confirm = 0;")
     Sumnotification countBynotification(@Param("id") long id );
